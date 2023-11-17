@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="679.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs3343g30.Controller">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="437.0" prefWidth="719.0">
+      <children>
+            <TabPane fx:id="tabPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="719.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="tabTaskZero" onSelectionChanged="#enlargeConsole" text="Task Zero">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="221.0" prefWidth="719.0">
+                           <children>
+                              <Label layoutX="98.0" layoutY="67.0" prefHeight="18.0" prefWidth="87.0" text="Name (female)" />
+                              <Label layoutX="98.0" layoutY="98.0" text="Year of Interest" />
+                              <TextField fx:id="textfieldNameF" layoutX="185.0" layoutY="64.0" prefHeight="26.0" prefWidth="150.0" promptText="e.g 1830 (18: yr 18-19; 30: Spring)" text="Desire" />
+                              <TextField fx:id="textfieldYear" layoutX="185.0" layoutY="95.0" text="2019" />
+                              <Button fx:id="buttonRankM" layoutX="185.0" layoutY="134.0" mnemonicParsing="false" onAction="#doRankM" text="Rank (male)" />
+                              <Label layoutX="98.0" layoutY="35.0" text="Name (male)" />
+                              <TextField fx:id="textfieldNameM" layoutX="185.0" layoutY="32.0" prefHeight="26.0" prefWidth="149.0" text="David" />
+                              <Label layoutX="98.0" layoutY="138.0" text="REPORT" />
+                              <Button fx:id="buttonRankF" layoutX="271.0" layoutY="134.0" mnemonicParsing="false" onAction="#doRankF" text="Rank (female)" />
+                              <Button fx:id="buttonTopM" layoutX="370.0" layoutY="134.0" mnemonicParsing="false" onAction="#doTopM" text="Top 5 (male)" />
+                              <Button fx:id="buttonTopF" layoutX="462.0" layoutY="134.0" mnemonicParsing="false" onAction="#doTopF" text="Top 5 (female)" />
+                              <Button fx:id="buttonSummary" layoutX="566.0" layoutY="134.0" mnemonicParsing="false" onAction="#doSummary" text="Summary" />
+                              <Label layoutX="342.0" layoutY="98.0" text="Range: 1880 - 2019" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabReport1" onSelectionChanged="#reduceConsole" text="Reporting 1">
+                    <content>
+                      <ScrollPane pannable="true" prefHeight="584.0" prefWidth="719.0">
+                      	<content>
+                      	   <AnchorPane>
+	                           <children>
+	                              <Label layoutX="23.0" layoutY="26.0" text="Year of Interest: " />
+	                              <Label fx:id="t1ErrorMsgForYear" layoutX="455" layoutY="26" text="(error message)" />
+	                              <Label layoutX="23.0" layoutY="55.0" text="Top N Most Popular Names to be Reported: " />
+	                              <Label fx:id="t1ErrorMsgForN" layoutX="455" layoutY="55" text="(error message)" />
+	                              <TextField fx:id="t1YearOfInterest" layoutX="290.0" layoutY="26.0" />
+	                              <TextField fx:id="t1NumOfNames" layoutX="290.0" layoutY="55.0" />
+	                              <Button fx:id="t1GenerateButton" layoutX="23" layoutY="85" onAction="#t1GenerateReport" text="Generate Report" />
+	                              <Label layoutX="23.0" layoutY="130.0" text="Summary of Results: " />
+	                              <TextArea fx:id="t1Summary" layoutX="23.0" layoutY="155.0" prefHeight="100.0" prefWidth="660.0" />
+	                              <Label fx:id="t1MaleTableLabel" layoutX="23.0" layoutY="280.0" text="Top N Names (male) in XXXX" />
+	                              <Label fx:id="t1FemaleTableLabel" layoutX="400.0" layoutY="280.0" text="Top N Names (female) in XXXX" />
+	                              <TableView fx:id="t1MaleTable" layoutX="23.0" layoutY="305.0" prefHeight="145.0" prefWidth="270.0">
+	                                <columns>
+	                                  <TableColumn fx:id="t1MaleNameCol" prefWidth="90.0" text="Name" />
+	                                  <TableColumn fx:id="t1MaleOccurrCol" prefWidth="90.0" text="Occurrences" />
+	                                  <TableColumn fx:id="t1MalePercentCol" prefWidth="90.0" text="Percentage" />
+	                                </columns>
+	                              </TableView>
+	                              <TableView fx:id="t1FemaleTable" layoutX="400.0" layoutY="305.0" prefHeight="143.0" prefWidth="270.0">
+	                                 <columns>
+	                                  <TableColumn fx:id="t1FemaleNameCol" prefWidth="90.0" text="Name" />
+	                                  <TableColumn fx:id="t1FemaleOccurrCol" prefWidth="90.0" text="Occurrences" />
+	                                  <TableColumn fx:id="t1FemalePercentCol" prefWidth="90.0" text="Percentage" />
+	                                 </columns>
+	                              </TableView>
+	                              <Label fx:id="t1MaleBarChartLabel" layoutX="23.0" layoutY="470" text="Top N Names (male) in XXXX" />
+	                              <BarChart fx:id="t1MaleBarChart" layoutX="10.0" layoutY="505.0" prefHeight="200.0" prefWidth="640.0">
+                                  	<xAxis>
+                                    	<CategoryAxis fx:id="t1MaleBarChartXAxis" side="BOTTOM" />
+                                    </xAxis>
+                                    <yAxis>
+                                    	<NumberAxis fx:id="t1MaleBarChartYAxis" side="LEFT" />
+                                    </yAxis>
+                                  </BarChart>
+                                  <Label fx:id="t1FemaleBarChartLabel" layoutX="23.0" layoutY="740" text="Top N Names (female) in XXXX" />
+      	                              <BarChart fx:id="t1FemaleBarChart" layoutX="10.0" layoutY="775.0" prefHeight="200.0" prefWidth="640.0">
+                                  	<xAxis>
+                                    	<CategoryAxis fx:id="t1FemaleBarChartXAxis" side="BOTTOM" />
+                                    </xAxis>
+                                    <yAxis>
+                                    	<NumberAxis fx:id="t1FemaleBarChartYAxis" side="LEFT" />
+                                    </yAxis>
+                                  </BarChart>
+                                  <Label fx:id="t1MalePieChartLabel" layoutX="23.0" layoutY="1010" text="Top N Names (male) in XXXX" />
+                                  <PieChart fx:id="t1MalePieChart" layoutX="10.0" layoutY="1045.0" prefHeight="300.0" prefWidth="300.0" />
+                                  <Label fx:id="t1FemalePieChartLabel" layoutX="400.0" layoutY="1010" text="Top N Names (female) in XXXX" />
+                                  <PieChart fx:id="t1FemalePieChart" layoutX="387.0" layoutY="1045.0" prefHeight="300.0" prefWidth="300.0" />                   
+      	                           </children>
+      	                         </AnchorPane>
+                           </content>
+                       </ScrollPane>
+                    </content>
+                  </Tab>
+                <Tab fx:id="tabReport2" onSelectionChanged="#loadT2" text="Reporting 2">
+                  <content>
+                        <AnchorPane prefHeight="940.0" prefWidth="720.0">
+                           <children>
+                              <Label layoutX="20.0" layoutY="32.0" text="Years of interest:" />
+                              <TextField fx:id="t2_start_year" layoutX="112.0" layoutY="28.0" prefHeight="25.0" prefWidth="43.0" promptText="1880" />
+                              <Label layoutX="164.0" layoutY="32.0" text="-" />
+                              <TextField fx:id="t2_end_year" layoutX="176.0" layoutY="28.0" prefHeight="25.0" prefWidth="43.0" promptText="2019" />
+                              <TextField fx:id="t2_k" layoutX="112.0" layoutY="61.0" prefHeight="25.0" prefWidth="43.0" promptText="1000" />
+                              <Label layoutX="164.0" layoutY="65.0" prefHeight="17.0" prefWidth="92.0" text="th popular name" />
+                              <Label layoutX="20.0" layoutY="65.0" text="Gender:" />
+                              <ChoiceBox fx:id="t2_gender" layoutX="71.0" layoutY="61.0" prefHeight="25.0" prefWidth="26.0" />
+                              <Button fx:id="t2_generate" layoutX="288.0" layoutY="16.0" mnemonicParsing="false" onAction="#t2GenerateReport" prefHeight="75.0" prefWidth="358.0" text="Generate report">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Button>
+                              <TabPane layoutX="20.0" layoutY="111.0" prefHeight="423.0" prefWidth="666.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="Summary">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TextArea fx:id="t2_summary" layoutX="14.0" layoutY="14.0" prefHeight="339.0" prefWidth="637.0" />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab text="Data Table">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="t2_table" layoutX="14.0" layoutY="14.0" prefHeight="369.0" prefWidth="640.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="t2_name_column" prefWidth="125.0" text="Name" />
+                                                    <TableColumn fx:id="t2_freq_column" prefWidth="183.0" text="Frequency" />
+                                                      <TableColumn fx:id="t2_occurr_column" prefWidth="173.0" text="Occurences" />
+                                                      <TableColumn fx:id="t2_percent_column" prefWidth="158.0" text="Percentages" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                    <Tab text="Bar Chart">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <BarChart fx:id="t2_bar" layoutX="13.0" layoutY="20.0" prefHeight="355.0" prefWidth="641.0">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" />
+                                                  </yAxis>
+                                                </BarChart>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                    <Tab text="Pie Chart">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <PieChart fx:id="t2_pie" layoutX="83.0" layoutY="6.0" prefHeight="373.0" prefWidth="498.0" />
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabReport3" onSelectionChanged="#loadT3" text="Reporting 3">
+                    <content>
+                        <AnchorPane>
+                           <children>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="576.0" prefWidth="719.0">
+                                 <children>
+                                    <ScrollPane pannable="true" prefHeight="584.0" prefWidth="719.0">
+                                       <content>
+                                          <AnchorPane prefHeight="787.0" prefWidth="705.0">
+                                             <children>
+                                                <TextField fx:id="t3StartYearField" layoutX="97.0" layoutY="22.0" prefHeight="25.0" prefWidth="100.0" />
+                                                <Label layoutX="23.0" layoutY="26.0" text="Starting Year: " />
+                                                <Label layoutX="23.0" layoutY="55.0" text="Ending Year: " />
+                                                <TextField fx:id="t3EndYearField" layoutX="97.0" layoutY="51.0" prefHeight="25.0" prefWidth="100.0" />
+                                                <Label layoutX="252.0" layoutY="26.0" text="Name: " />
+                                                <TextField fx:id="t3NameField" layoutX="290.0" layoutY="22.0" prefHeight="25.0" prefWidth="189.0" />
+                                                <Label layoutX="523.0" layoutY="26.0" text="Gender: " />
+                                                <ChoiceBox fx:id="t3GenderChoice" layoutX="568.0" layoutY="22.0" prefHeight="25.0" prefWidth="110.0" />
+                                                <Button fx:id="t3GenerateButton" layoutX="574.0" layoutY="51.0" mnemonicParsing="false" onAction="#t3GenerateReport" text="Generate Report" />
+                                                <Label layoutX="23.0" layoutY="89.0" text="Summary of Results: " />
+                                                <TextArea fx:id="t3SummaryTextArea" layoutX="22.0" layoutY="114.0" prefHeight="51.0" prefWidth="672.0" wrapText="true" />
+                                                <Label layoutX="23.0" layoutY="178.0" text="Relavant results presented with a datatable" />
+                                                <ScrollPane layoutX="23.0" layoutY="204.0" prefHeight="173.0" prefWidth="647.0">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="169.0" prefWidth="633.0">
+                                                         <children>
+                                                            <TableView fx:id="t3DataTable" prefHeight="170.0" prefWidth="647.0">
+                                                              <columns>
+                                                                <TableColumn fx:id="t3YearColumn" prefWidth="179.0" text="Year" />
+                                                                <TableColumn fx:id="t3RankColumn" prefWidth="163.0" text="Rank" />
+                                                                  <TableColumn fx:id="t3OccurrencesColumn" prefWidth="154.0" text="Occurrences" />
+                                                                  <TableColumn fx:id="t3PercentageColumn" prefWidth="150.0" text="Percentage" />
+                                                              </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </ScrollPane>
+                                                <Label layoutX="23.0" layoutY="385.0" text="Relevant results presented with a bar chart" />
+                                                <ScrollPane layoutX="33.0" layoutY="410.0" prefHeight="158.0" prefWidth="645.0">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="633.0">
+                                                         <children>
+                                                            <BarChart fx:id="t3BarChart" layoutX="-2.0" layoutY="-2.0" prefHeight="156.0" prefWidth="634.0">
+                                                              <xAxis>
+                                                                <CategoryAxis side="BOTTOM" />
+                                                              </xAxis>
+                                                              <yAxis>
+                                                                <NumberAxis side="LEFT" />
+                                                              </yAxis>
+                                                            </BarChart>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </ScrollPane>
+                                                <Label layoutX="23.0" layoutY="580.0" text="Relevant results presnted with a line chart" />
+                                                <ScrollPane layoutX="23.0" layoutY="620.0" prefHeight="158.0" prefWidth="645.0">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="633.0">
+                                                         <children>
+                                                            <LineChart fx:id="t3LineChart" layoutY="7.0" prefHeight="137.0" prefWidth="633.0">
+                                                              <xAxis>
+                                                                <NumberAxis fx:id="t3LineChartXAxis" side="BOTTOM" />
+                                                              </xAxis>
+                                                              <yAxis>
+                                                                <NumberAxis side="LEFT" />
+                                                              </yAxis>
+                                                            </LineChart>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabApp1" onSelectionChanged="#reduceConsole" text="Application1">
+                    <content>
+                    	<ScrollPane pannable="true" prefHeight="584.0" prefWidth="719.0">
+                    		<content>
+	                    		<AnchorPane minHeight="0.0" minWidth="0.0">
+	                          		<children>
+	                                	<Label layoutX="23.0" layoutY="26.0" text="Dad's name: " />
+	                                	<Label layoutX="23.0" layoutY="61.0" text="Mum's name: " />
+	                                	<Label layoutX="23.0" layoutY="96.0" text="Year of birth of dad: " />
+	                                	<Label layoutX="23.0" layoutY="131.0" text="Year of birth of mum: " />
+	                                	<TextField fx:id="t4DadName" layoutX="150.0" layoutY="26.0" />
+	                                	<TextField fx:id="t4MumName" layoutX="150.0" layoutY="61.0" />
+	                                	<TextField fx:id="t4DadYOB" layoutX="150.0" layoutY="96.0" />
+	                                	<TextField fx:id="t4MumYOB" layoutX="150.0" layoutY="131.0" />
+	                                	<Label fx:id="t4ErrorMsgForDadName" layoutX="310.0" layoutY="26.0" />
+	                                	<Label fx:id="t4ErrorMsgForMumName" layoutX="310.0" layoutY="61.0" />
+	                                	<Label fx:id="t4ErrorMsgForDadYOB" layoutX="310.0" layoutY="96.0" text="(Range: 1880 - 2019)" />
+	                                	<Label fx:id="t4ErrorMsgForMumYOB" layoutX="310.0" layoutY="131.0" text="(Range: 1880 - 2019)" />
+	                                	<Label fx:id="t4Algo1ExplainLabel" layoutX="23.0" layoutY="190.0" text="(Algorithm T4X1: A Popular Names)" />
+	                                	<Label fx:id="t4Algo2ExplainLabel" layoutX="23.0" layoutY="205.0" text="(Algorithm T4X2: A Unique and Balanced Names)" />
+	                                	<Label layoutX="23.0" layoutY="229.0" text="Algorithm: " />
+	                                	<ChoiceBox fx:id="t4AlgoChoice" layoutX="123.0" layoutY="225" />
+	                                	<Label fx:id="t4ErrorMsgForAlgoChoice" layoutX="190" layoutY="230" text="Please make a choice" />
+	                                	<Button fx:id="t4Button" layoutX="400" layoutY="225" onAction="#t4GenerateRecommendation" text="Generate the baby's name" />
+	                                		                                
+	                                	<Label fx:id="t4RecomBoyLabel" layoutX="23.0" layoutY="270.0" text="Recommendation for a boy: " />
+	                                	<Label fx:id="t4BoyName" layoutX="240" layoutY="265" text="" />
+	                                	<Label fx:id="t4RecomGirlLabel" layoutX="360.0" layoutY="270.0" text="Recommendation for a girl: " />
+	                                	<Label fx:id="t4GirlName" layoutX="580" layoutY="265" text="" />
+	                                	
+	                                	<Label fx:id="t4FunFactLabel" layoutX="23" layoutY="310" text="Fun fact: " />
+	                                	<Label fx:id="t4FunFact" layoutX="85" layoutY="310" text="?" textFill="#ff0085" />	                                	
+	                                	
+	                                	<Label layoutX="23" layoutY="350" text="Reason:" />
+	                                	<TextArea fx:id="t4ReasonTextArea" layoutX="23" layoutY="370" prefHeight="120.0" prefWidth="660.0" />
+	                                	
+	                                	<Label layoutX="23" layoutY="515" text="Data in Table" />
+	                                	<TableView fx:id="t4Table" layoutX="23" layoutY="535" prefHeight="190" prefWidth="660">
+	                                		<columns>
+				                            	<TableColumn fx:id="t4YearCol" prefWidth="110" text="Year" />
+				                                <TableColumn fx:id="t4RankCol" prefWidth="110" text="Rank" />
+				                                <TableColumn fx:id="t4NameCol" prefWidth="110" text="Name" />
+				                                <TableColumn fx:id="t4GenderCol" prefWidth="110" text="Gender" />
+				                                <TableColumn fx:id="t4OccurrCol" prefWidth="110" text="Occurrence" />
+				                                <TableColumn fx:id="t4PercentCol" prefWidth="110" text="Percentage" />
+				                            </columns>	                               
+	                                	</TableView>	                           
+	                            	</children>
+	                        	</AnchorPane>
+	                		</content>
+	                	</ScrollPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabApp2" onSelectionChanged="#loadT5" text="Application 2">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Your name:" />
+                              <Label layoutX="255.0" layoutY="14.0" text="Your gender:" />
+                              <Label layoutX="386.0" layoutY="14.0" text="Your year of birth:" />
+                              <TextField fx:id="t5_iName" layoutX="83.0" layoutY="10.0" prefHeight="25.0" prefWidth="136.0" />
+                              <TextField fx:id="t5_iYOB" layoutX="493.0" layoutY="10.0" />
+                              <ChoiceBox fx:id="t5_iGender" layoutX="330.0" layoutY="10.0" prefWidth="36.0" />
+                              <ChoiceBox fx:id="t5_iGenderMate" layoutX="147.0" layoutY="41.0" prefWidth="36.0" />
+                              <Label layoutX="14.0" layoutY="45.0" text="Your soulmate's gender:" />
+                              <Label layoutX="226.0" layoutY="45.0" text="You prefer a " />
+                              <ChoiceBox fx:id="t5_iPreference" layoutX="295.0" layoutY="41.0" prefHeight="25.0" prefWidth="93.0" />
+                              <Label layoutX="394.0" layoutY="45.0" text="soulmate" />
+                              <Label layoutX="493.0" layoutY="45.0" text="Algorithm:" />
+                              <ChoiceBox fx:id="t5_algorithm" layoutX="555.0" layoutY="41.0" prefHeight="25.0" prefWidth="56.0" />
+                              <Button fx:id="t5_predict_button" layoutX="174.0" layoutY="82.0" mnemonicParsing="false" onAction="#t5_predict" prefHeight="112.0" prefWidth="335.0" text="Predict the name of your soulmate" textFill="#ff0085">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="t5_oName" alignment="CENTER" layoutX="156.0" layoutY="202.0" prefHeight="80.0" prefWidth="375.0" promptText="❤❤❤❤❤❤❤❤❤❤❤">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </TextField>
+                              <Label layoutX="14.0" layoutY="286.0" text="Reason:" />
+                              <TextArea fx:id="t5_reason" layoutX="14.0" layoutY="303.0" prefHeight="200.0" prefWidth="324.0" />
+                              <Label layoutX="348.0" layoutY="286.0" text="Occurrences bar chart:" />
+                              <BarChart fx:id="t5_chart" layoutX="355.0" layoutY="303.0" prefHeight="208.0" prefWidth="326.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabApp3" onSelectionChanged="#loadT6" text="Application 3">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #FFE6EE;">
+                           <children>
+                              <Label layoutX="72.0" layoutY="14.0" text="Your Name: " />
+                              <TextField fx:id="t6OwnNameField" layoutX="140.0" layoutY="10.0" />
+                              <Label layoutX="346.0" layoutY="14.0" text="Your Gender: " />
+                              <TextField fx:id="t6OwnYOB" layoutX="616.0" layoutY="10.0" prefHeight="25.0" prefWidth="83.0" />
+                              <Label layoutX="515.0" layoutY="14.0" text="Your Year of Birth: " />
+                              <ChoiceBox fx:id="t6OwnGenderChoice" layoutX="423.0" layoutY="10.0" prefHeight="25.0" prefWidth="71.0" />
+                              <Label layoutX="26.0" layoutY="45.0" text="Name of your target: " />
+                              <TextField fx:id="t6TargetName" layoutX="140.0" layoutY="41.0" />
+                              <Label layoutX="299.0" layoutY="45.0" text="Gender of your target: " />
+                              <ChoiceBox fx:id="t6TargetGenderChoice" layoutX="424.0" layoutY="41.0" prefHeight="25.0" prefWidth="70.0" />
+                              <Label layoutX="51.0" layoutY="74.0" text="Your Preference: " />
+                              <ChoiceBox fx:id="t6PreferenceChoice" layoutX="140.0" layoutY="70.0" prefHeight="25.0" prefWidth="114.0" />
+                              <Label layoutX="299.0" layoutY="74.0" text="Algorithm: " />
+                              <RadioButton fx:id="t6X1Button" layoutX="358.0" layoutY="74.0" mnemonicParsing="false" onAction="#selectT6X1" text="T6X1" />
+                              <RadioButton fx:id="t6X2Button" layoutX="420.0" layoutY="74.0" mnemonicParsing="false" onAction="#selectT6X2" text="T6X2" />
+                              <Button fx:id="t6RunButton" layoutX="510.0" layoutY="40.0" mnemonicParsing="false" onAction="#t6Calculate" text="Run Algorithm" textFill="#ff1540">
+                                 <font>
+                                    <Font name="Brush Script MT Italic" size="30.0" />
+                                 </font></Button>
+                              <PieChart fx:id="t6PieChart" layoutX="14.0" layoutY="156.0" prefHeight="309.0" prefWidth="334.0" />
+                              <Label fx:id="t6ProgressLabel" layoutX="147.0" layoutY="275.0">
+                                 <font>
+                                    <Font name="Arial" size="30.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="t6TextArea" layoutX="355.0" layoutY="146.0" prefHeight="410.0" prefWidth="344.0" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></TextArea>
+                              <ImageView fx:id="t6HeartContainerImage" fitHeight="335.0" fitWidth="334.0" layoutX="11.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@heartContainer.png" />
+                                 </image>
+                              </ImageView>
+                              <TextField fx:id="t6TargetBirthMonth" layoutX="165.0" layoutY="106.0" prefHeight="25.0" prefWidth="76.0" visible="false" />
+                              <TextField fx:id="t6TargetBirthDay" layoutX="285.0" layoutY="106.0" prefHeight="25.0" prefWidth="73.0" visible="false" />
+                              <Label fx:id="t6TargetBirthMonthLabel" layoutX="28.0" layoutY="110.0" text="Target's Birthday: Month: " visible="false" />
+                              <Label fx:id="t6TargetBirthDayLabel" layoutX="253.0" layoutY="110.0" text="Day: " visible="false" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+      </children>
+    </AnchorPane>
+      <Label fx:id="textAreaLabel" text="Console" />
+      <ScrollPane fx:id="textAreaScrollPane" prefHeight="387.0" prefWidth="719.0">
+         <content>
+            <TextArea fx:id="textAreaConsole" prefHeight="300.0" prefWidth="718.0" />
+         </content>
+      </ScrollPane>
+  </children>
+</VBox>

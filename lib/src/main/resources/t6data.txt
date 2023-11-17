@@ -1,0 +1,176 @@
+# This files is for storing data for the recommendation task
+# The string before colon : will be found, and the string after colon : will be returned
+# Lines that start with # are comments and will be ignored
+# empty lines will also be ignored
+
+Rat:savvy, quick-witted, but undetermined and stubborn
+Ox:loyal, honest, but less-talkative and conservative
+Tiger:brave, passionate, but rebellious, overconfident
+Rabbit:optimistic, gracious, but a little vain and emotionally unstable
+Dragon:determined, ambitious, but easily give up and have little willpower
+Snake:calm, talented, but indifferent and skeptical
+Horse:inspired, cheerful, but overly ambitious and overconfident
+Sheep:gentle, sympathetic, but negative and hesitating
+Monkey:active, quick-witted, but braggart and tricky
+Rooster:outgoing, humorous, but impatient and boastful
+Dog:brave, loyal, but sensitive, conservative
+Pig:diligent, sincere, but easily influenced and realistic
+
+Aquarius:friendly, humanitarian, but intractable and contrary
+Pisces:imaginative, sensitive, but escapist and idealistic
+Aries:adventurous, energetic, but selfish and quick-tempered
+Taurus:patient, reliable, but jealous and possessive
+Gemini:adaptable and versatile, but nervous and tense
+Cancer:emotional and loving, but changeable and moody
+Leo:generous, warmhearted, but pompous and patronizing
+Virgo:modest, shy, but fussy and a worrier
+Libra:diplomatic, urbane, but indecisive and changeable
+Scorpio:determined, forceful, but jealous and resentful
+Sagittarius:optimistic, freedom-loving, but careless and irresponsible
+Capricorn:practical, prudent, but pessimistic and fatalistic
+
+# you two should + ... + .
+Rat+Aquarius:learn to respect each other's interests and personalities:-3
+Rat+Pisces:keep your lives balanced, don't overlook other aspects of life:17
+Rat+Aries:make sure you know how each other feel, and try to communicate it:-14
+Rat+Taurus:think twice before arguing with each other:17
+Rat+Gemini:find a hobby that you both enjoy and have fun together:4
+Rat+Cancer:be flexible to changes:-14
+Rat+Lep:learn to be dependable, if you made a plan, follow through:30
+Rat+Virgo:talk with each other more and focus on listening:-7
+Rat+Libra:learn to be dependable, if you made a plan, follow through:28
+Rat+Scorpio:keep a health boundary, learn that you are not other's everything:21
+Rat+Sagittarius:be flexible to changes:30
+Rat+Capricorn:find a hobby that you both enjoy and have fun together:15
+Ox+Aquarius:think twice before arguing with each other:30
+Ox+Pisces:learn to give each other space:14
+Ox+Aries:learn to let something go during arguments:20
+Ox+Taurus:learn to look for nonverbal cues from each other in communications:25
+Ox+Gemini:learn to let something go during arguments:18
+Ox+Cancer:learn to let something go during arguments:-3
+Ox+Lep:make sure you know how each other feel, and try to communicate it:10
+Ox+Virgo:find a hobby that you both enjoy and have fun together:28
+Ox+Libra:learn to be dependable, if you made a plan, follow through:10
+Ox+Scorpio:keep your lives balanced, don't overlook other aspects of life:1
+Ox+Sagittarius:learn to let something go during arguments:-3
+Ox+Capricorn:be flexible to changes:25
+Tiger+Aquarius:embrace changes, since they cannot be avoided:18
+Tiger+Pisces:learn to respect each other's interests and personalities:-9
+Tiger+Aries:embrace changes, since they cannot be avoided:6
+Tiger+Taurus:find a hobby that you both enjoy and have fun together:4
+Tiger+Gemini:be flexible to changes:-6
+Tiger+Cancer:make sure you meet each other's needs:-6
+Tiger+Lep:think twice before arguing with each other:-8
+Tiger+Virgo:often think about how you can improve yourself for the other:14
+Tiger+Libra:make sure you know how each other feel, and try to communicate it:-7
+Tiger+Scorpio:make sure you know how each other feel, and try to communicate it:23
+Tiger+Sagittarius:often think about how you can improve yourself for the other:17
+Tiger+Capricorn:be flexible to changes:-14
+Rabbit+Aquarius:communicate your feelings in a calm way:27
+Rabbit+Pisces:embrace changes, since they cannot be avoided:1
+Rabbit+Aries:think twice before arguing with each other:-10
+Rabbit+Taurus:make sure you know how each other feel, and try to communicate it:22
+Rabbit+Gemini:keep your lives balanced, don't overlook other aspects of life:4
+Rabbit+Cancer:learn to let something go during arguments:-12
+Rabbit+Lep:embrace changes, since they cannot be avoided:-5
+Rabbit+Virgo:make sure you know how each other feel, and try to communicate it:-8
+Rabbit+Libra:keep your lives balanced, don't overlook other aspects of life:9
+Rabbit+Scorpio:learn to look for nonverbal cues from each other in communications:-4
+Rabbit+Sagittarius:often think about how you can improve yourself for the other:-5
+Rabbit+Capricorn:be affirming by complementing each other more:-11
+Dragon+Aquarius:keep a health boundary, learn that you are not other's everything:16
+Dragon+Pisces:learn to respect each other's interests and personalities:16
+Dragon+Aries:keep your lives balanced, don't overlook other aspects of life:25
+Dragon+Taurus:be flexible to changes:-1
+Dragon+Gemini:learn to look for nonverbal cues from each other in communications:9
+Dragon+Cancer:keep your lives balanced, don't overlook other aspects of life:18
+Dragon+Lep:communicate your feelings in a calm way:30
+Dragon+Virgo:learn to let something go during arguments:30
+Dragon+Libra:make sure you meet each other's needs:24
+Dragon+Scorpio:find a hobby that you both enjoy and have fun together:10
+Dragon+Sagittarius:make sure you meet each other's needs:25
+Dragon+Capricorn:learn to give each other space:13
+Snake+Aquarius:learn to look for nonverbal cues from each other in communications:-3
+Snake+Pisces:learn to give each other space:-5
+Snake+Aries:learn to look for nonverbal cues from each other in communications:24
+Snake+Taurus:be flexible to changes:27
+Snake+Gemini:communicate your feelings in a calm way:-9
+Snake+Cancer:keep a health boundary, learn that you are not other's everything:-12
+Snake+Lep:learn to let something go during arguments:21
+Snake+Virgo:embrace changes, since they cannot be avoided:6
+Snake+Libra:communicate your feelings in a calm way:1
+Snake+Scorpio:often think about how you can improve yourself for the other:2
+Snake+Sagittarius:be flexible to changes:2
+Snake+Capricorn:keep your lives balanced, don't overlook other aspects of life:3
+Horse+Aquarius:talk with each other more and focus on listening:12
+Horse+Pisces:communicate your feelings in a calm way:-4
+Horse+Aries:learn to give each other space:-9
+Horse+Taurus:embrace changes, since they cannot be avoided:18
+Horse+Gemini:make sure you know how each other feel, and try to communicate it:18
+Horse+Cancer:be flexible to changes:22
+Horse+Lep:keep your lives balanced, don't overlook other aspects of life:-1
+Horse+Virgo:often think about how you can improve yourself for the other:7
+Horse+Libra:learn to give each other space:25
+Horse+Scorpio:make sure you meet each other's needs:-14
+Horse+Sagittarius:keep your lives balanced, don't overlook other aspects of life:30
+Horse+Capricorn:keep a health boundary, learn that you are not other's everything:-14
+Sheep+Aquarius:find a hobby that you both enjoy and have fun together:3
+Sheep+Pisces:find a hobby that you both enjoy and have fun together:-4
+Sheep+Aries:learn to respect each other's interests and personalities:19
+Sheep+Taurus:learn to give each other space:14
+Sheep+Gemini:be affirming by complementing each other more:-6
+Sheep+Cancer:often think about how you can improve yourself for the other:-8
+Sheep+Lep:talk with each other more and focus on listening:-10
+Sheep+Virgo:keep a health boundary, learn that you are not other's everything:-1
+Sheep+Libra:think twice before arguing with each other:15
+Sheep+Scorpio:learn to let something go during arguments:0
+Sheep+Sagittarius:find a hobby that you both enjoy and have fun together:-13
+Sheep+Capricorn:make sure you know how each other feel, and try to communicate it:-8
+Monkey+Aquarius:learn to give each other space:21
+Monkey+Pisces:communicate your feelings in a calm way:1
+Monkey+Aries:make sure you know how each other feel, and try to communicate it:5
+Monkey+Taurus:keep your lives balanced, don't overlook other aspects of life:-9
+Monkey+Gemini:keep a health boundary, learn that you are not other's everything:10
+Monkey+Cancer:keep expectations realistic, don't expect too much from each other:-9
+Monkey+Lep:keep expectations realistic, don't expect too much from each other:6
+Monkey+Virgo:make sure you know how each other feel, and try to communicate it:24
+Monkey+Libra:learn to look for nonverbal cues from each other in communications:21
+Monkey+Scorpio:find a hobby that you both enjoy and have fun together:-11
+Monkey+Sagittarius:learn to let something go during arguments:10
+Monkey+Capricorn:learn to let something go during arguments:9
+Rooster+Aquarius:learn to respect each other's interests and personalities:20
+Rooster+Pisces:keep expectations realistic, don't expect too much from each other:13
+Rooster+Aries:think twice before arguing with each other:25
+Rooster+Taurus:think twice before arguing with each other:12
+Rooster+Gemini:learn to be dependable, if you made a plan, follow through:-8
+Rooster+Cancer:embrace changes, since they cannot be avoided:2
+Rooster+Lep:learn to give each other space:-1
+Rooster+Virgo:learn to let something go during arguments:-8
+Rooster+Libra:learn to look for nonverbal cues from each other in communications:28
+Rooster+Scorpio:embrace changes, since they cannot be avoided:22
+Rooster+Sagittarius:learn to respect each other's interests and personalities:5
+Rooster+Capricorn:learn to give each other space:30
+Dog+Aquarius:be flexible to changes:23
+Dog+Pisces:keep a health boundary, learn that you are not other's everything:30
+Dog+Aries:embrace changes, since they cannot be avoided:-10
+Dog+Taurus:make sure you meet each other's needs:-15
+Dog+Gemini:keep a health boundary, learn that you are not other's everything:-8
+Dog+Cancer:communicate your feelings in a calm way:-14
+Dog+Lep:find a hobby that you both enjoy and have fun together:26
+Dog+Virgo:learn to let something go during arguments:-1
+Dog+Libra:think twice before arguing with each other:1
+Dog+Scorpio:keep your lives balanced, don't overlook other aspects of life:12
+Dog+Sagittarius:keep your lives balanced, don't overlook other aspects of life:5
+Dog+Capricorn:keep expectations realistic, don't expect too much from each other:-10
+Pig+Aquarius:be flexible to changes:23
+Pig+Pisces:find a hobby that you both enjoy and have fun together:12
+Pig+Aries:communicate your feelings in a calm way:7
+Pig+Taurus:learn to give each other space:12
+Pig+Gemini:find a hobby that you both enjoy and have fun together:27
+Pig+Cancer:often think about how you can improve yourself for the other:-14
+Pig+Lep:make sure you meet each other's needs:21
+Pig+Virgo:be flexible to changes:23
+Pig+Libra:be affirming by complementing each other more:20
+Pig+Scorpio:keep a health boundary, learn that you are not other's everything:-6
+Pig+Sagittarius:find a hobby that you both enjoy and have fun together:18
+Pig+Capricorn:learn to respect each other's interests and personalities:9
