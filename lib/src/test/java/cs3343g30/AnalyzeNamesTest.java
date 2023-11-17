@@ -16,14 +16,14 @@ public class AnalyzeNamesTest {
     public void testGetRankMale() {
     	AnalyzeNames a = new AnalyzeNames();
     	int i = a.getRank(2019, "David", "M");
-    	assertTrue(i==27);
+    	assertEquals(i,27);
     }
     
     @Test 
     public void testGetRankFemale() {
     	AnalyzeNames a = new AnalyzeNames();
     	int i = a.getRank(2019, "Desire", "F");
-    	assertTrue(i==2192);
+    	assertEquals(i,2192);
     }
     	
     @Test 
