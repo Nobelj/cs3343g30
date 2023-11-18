@@ -6,9 +6,16 @@ import static org.junit.Assert.*;
 public class AnalyzeNamesTest {
 	
     @Test 
-    public void testGetRankNotFound() {
+    public void testMaleGetRankNotFound() {
     	AnalyzeNames a = new AnalyzeNames();
     	int i = a.getRank(2019, "XXX", "M");
+		assertEquals(i, -1);
+    }
+    
+    @Test 
+    public void testFemaleGetRankNotFound() {
+    	AnalyzeNames a = new AnalyzeNames();
+    	int i = a.getRank(2019, "XXX", "F");
 		assertEquals(i, -1);
     }
     

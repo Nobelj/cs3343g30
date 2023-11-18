@@ -84,6 +84,68 @@ public class JavaFXTest extends ApplicationTest {
 		String s = t.getText();
 		assertTrue(s.equals("David"));
 	}
+	
+	@Test
+	public void testButtonT0Summary() {
+		clickOn("#buttonSummary");
+		assertEquals(t.getText(), "Summary (Year of 2019):\n" +
+                "Total Births = 3,445,321\n" +
+                "***Baby Girls = 1,665,373\n" +
+                "***Baby Boys = 1,779,948\n" +
+                "Total Number of Unique Names = 31,954\n" +
+                "***Unique Names (baby girls) = 17,905\n" +
+                "***Unique Names (baby boys) = 14,049\n");
+	}
+	
+	@Test
+	public void testButtonT0TestRankMale() {
+		clickOn("#buttonRankM");
+		assertEquals(t.getText(), "Rank of David (male) in year 2019 is #27.\n");
+	}
+	
+	@Test
+	public void testButtonT0TestRankMaleInvalid() {
+		TextField textfieldNameM = (TextField)s.lookup("#textfieldNameM");
+		textfieldNameM.setText("X");
+		clickOn("#buttonRankM");
+		assertEquals(t.getText(), "The name X (male) has not been ranked in the year 2019.\n");
+	}
+	
+	@Test
+	public void testButtonT0TestRankFemale() {
+		clickOn("#buttonRankF");
+		assertEquals(t.getText(), "Rank of Desire (female) in year 2019 is #2192.\n");
+	}
+	
+	@Test
+	public void testButtonT0TestRankFemaleInvalid() {
+		TextField textfieldNameF = (TextField)s.lookup("#textfieldNameF");
+		textfieldNameF.setText("X");
+		clickOn("#buttonRankF");
+		assertEquals(t.getText(), "The name X (female) has not been ranked in the year 2019.\n");
+	}
+	
+	@Test
+	public void testButtonT0TopFiveMale() {
+		clickOn("#buttonTopM");
+		assertEquals(t.getText(), "Top 5 most popular names (male) in the year 2019:\n"
+				+ "#1: Liam\n"
+				+ "#2: Noah\n"
+				+ "#3: Oliver\n"
+				+ "#4: William\n"
+				+ "#5: Elijah\n");
+	}
+	
+	@Test
+	public void testButtonT0TopFiveFemale() {
+		clickOn("#buttonTopF");
+		assertEquals(t.getText(), "Top 5 most popular names (female) in the year 2019:\n"
+				+ "#1: Olivia\n"
+				+ "#2: Emma\n"
+				+ "#3: Ava\n"
+				+ "#4: Sophia\n"
+				+ "#5: Isabella\n");
+	}
 
 	@Test
 	public void testButtonT1GenerateReportValid() {

@@ -49,7 +49,7 @@ public class MyApplication extends Application {
 
    		Scene scene =  new Scene(root);
    		stage.setScene(scene);
-   		stage.setTitle("Team T-10: Popular Names");
+   		stage.setTitle("CS3343 Group 30: Popular Names Analyzer");
    		// Add image as icon
 		Image icon = new Image("/icon.png");
 		stage.getIcons().add(icon);
