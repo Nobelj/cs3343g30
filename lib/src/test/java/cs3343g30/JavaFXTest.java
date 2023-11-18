@@ -347,7 +347,7 @@ public class JavaFXTest extends ApplicationTest {
 		clickOn("#t3GenerateButton");
 		t = (TextArea)s.lookup("#t3SummaryTextArea");
 		String s1 = t.getText();
-		assertTrue(s1.equals("The year when the name Mary was most popular is 1890 at rank 1. In that year, the number of occurrence is 12078, which represents 4.007% of total female births in 1890."));
+		assertTrue(s1.equals("The year when the name MARY was most popular is 1890 at rank 1. In that year, the number of occurrence is 12078, which represents 4.007% of total female births in 1890."));
 	}
 
 	@Test
@@ -373,7 +373,7 @@ public class JavaFXTest extends ApplicationTest {
 		clickOn("#t6RunButton");
 		t = (TextArea) s.lookup("#t6TextArea");
 		String s = t.getText();
-		assertEquals(s, "Unfortunately, you and Mary does not share the same length of name, therefore it would be hard for you two to work together, you can try the other algorithm to see if it gives a better result.");
+		assertEquals(s, "Unfortunately, you and MARY does not share the same length of name, therefore it would be hard for you two to work together, you can try the other algorithm to see if it gives a better result.");
 	}
 
 	@Test
@@ -400,10 +400,7 @@ public class JavaFXTest extends ApplicationTest {
 		clickOn("#t6RunButton");
 		t = (TextArea) s.lookup("#t6TextArea");
 		String s = t.getText();
-		assertEquals(s, "Hi Tommy, you are 73% compatible with Mary.\n" +
-				"A Mary is very unique, you are lucky to find one.\n" +
-				"As the older person, it means you are more mature than her, but it also means you have to be more compassionate towards her.\n" +
-				"You and Mary are a Snake and Capricorn match, with Snake being calm, talented, but indifferent and skeptical, and Capricorn being practical, prudent, but pessimistic and fatalistic, you two should keep your lives balanced, don't overlook other aspects of life.");
+		assertEquals(s, "Hi TOMMY, you are 83% compatible with MARY.\nA MARY is very unique, you are lucky to find one.\nAs the older person, it means you are more mature than her, but it also means you have to be more compassionate towards her.\nYou and MARY are a Snake and Capricorn match, with Snake being calm, talented, but indifferent and skeptical, and Capricorn being practical, prudent, but pessimistic and fatalistic, you two should keep your lives balanced, don't overlook other aspects of life.");
 	}
 
 
