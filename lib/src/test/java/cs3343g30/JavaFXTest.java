@@ -161,7 +161,25 @@ public class JavaFXTest extends ApplicationTest {
 	}
 
 	@Test
-	public void testButtonT1GenerateReportNumNamesInvalid() {
+	public void testButtonT1GenerateReportNumNamesInvalidCaseA() {
+		TextArea t = (TextArea)s.lookup("#t1Summary");
+		
+		clickOn("#tabReport1");
+		assertEquals(t.getText(), "");
+		
+		t1YearOfInterest.setText("1850");
+		t1NumOfNames.setText("11");
+		clickOn("#t1GenerateButton");
+		assertEquals(t.getText(), "");
+		
+		t1YearOfInterest.setText("2021");
+		t1NumOfNames.setText("0");
+		clickOn("#t1GenerateButton");
+		assertEquals(t.getText(), "");
+	}
+	
+	@Test
+	public void testButtonT1GenerateReportNumNamesInvalidCaseB() {
 		TextArea t = (TextArea)s.lookup("#t1Summary");
 		
 		clickOn("#tabReport1");
@@ -240,8 +258,6 @@ public class JavaFXTest extends ApplicationTest {
 		
 	}
 
-
-
 	
 	@Test
 	public void testT2ReportingNoInput() {
@@ -267,6 +283,57 @@ public class JavaFXTest extends ApplicationTest {
 		t = (TextArea)s.lookup("#t2_summary");
 		String s1 = t.getText();
 		assertTrue(s1.equals("Ethan has hold the 5-th rank most often for a total of 3 times among names registered \nfor baby boys born in the period from 2000 to 2010. The total number of occurrences of \nEthan is 65611, which represents 28.49% of total male births at the 5-th rank in the period from 2000 to 2010."));
+	}
+	
+	@Test
+	public void testT2ReportingInvalidKInputCaseA() {
+		clickOn("#tabReport2");
+		tf = (TextField)s.lookup("#t2_start_year");
+		tf.setText("2000");
+		tf = (TextField)s.lookup("#t2_end_year");
+		tf.setText("2010");
+		tf = (TextField)s.lookup("#t2_k");
+		tf.setText("0");
+		clickOn("#t2_gender");
+		type(KeyCode.ENTER);
+		clickOn("#t2_generate");
+		t = (TextArea)s.lookup("#t2_summary");
+		String s1 = t.getText();
+		assertTrue(s1.equals(""));
+	}
+	
+	@Test
+	public void testT2ReportingInvalidKInputCaseB() {
+		clickOn("#tabReport2");
+		tf = (TextField)s.lookup("#t2_start_year");
+		tf.setText("2000");
+		tf = (TextField)s.lookup("#t2_end_year");
+		tf.setText("2010");
+		tf = (TextField)s.lookup("#t2_k");
+		tf.setText("1500");
+		clickOn("#t2_gender");
+		type(KeyCode.ENTER);
+		clickOn("#t2_generate");
+		t = (TextArea)s.lookup("#t2_summary");
+		String s1 = t.getText();
+		assertTrue(s1.equals(""));
+	}
+	
+	@Test
+	public void testT2ReportingInvalidStartEnd() {
+		clickOn("#tabReport2");
+		tf = (TextField)s.lookup("#t2_start_year");
+		tf.setText("2010");
+		tf = (TextField)s.lookup("#t2_end_year");
+		tf.setText("2000");
+		tf = (TextField)s.lookup("#t2_k");
+		tf.setText("5");
+		clickOn("#t2_gender");
+		type(KeyCode.ENTER);
+		clickOn("#t2_generate");
+		t = (TextArea)s.lookup("#t2_summary");
+		String s1 = t.getText();
+		assertTrue(s1.equals(""));
 	}
 	
 	@Test
@@ -321,7 +388,82 @@ public class JavaFXTest extends ApplicationTest {
 				+ "2001 and 2010, which means\n"
 				+ "they will most likely become your soulmate in the future!"));
 	}
+	
+	@Test
+	public void testT5InvalidName() {
+		clickOn("#tabApp2");
+		tf = (TextField) s.lookup("#t5_iName");
+		tf.setText("Menon");
+		clickOn("#t5_iGender");
+		type(KeyCode.ENTER);
+		tf = (TextField) s.lookup("#t5_iYOB");
+		tf.setText("2001");
+		clickOn("#t5_iGenderMate");
+		type(KeyCode.DOWN);
+		type(KeyCode.ENTER);
+		clickOn("#t5_iPreference");
+		type(KeyCode.ENTER);
+		clickOn("#t5_algorithm");
+		type(KeyCode.DOWN);
+		type(KeyCode.ENTER);
+		clickOn("#t5_predict_button");
+		t = (TextArea)s.lookup("#t5_reason");
+		String s1 = t.getText();
+		assertTrue(s1.equals("Your name does not appear in our database,\nplease try another name."));
+	}
+	
+	@Test
+	public void testT5AutogenderFemale() {
+		clickOn("#tabApp2");
+		tf = (TextField) s.lookup("#t5_iName");
+		tf.setText("Tiffany");
+		tf = (TextField) s.lookup("#t5_iYOB");
+		tf.setText("2001");
+		clickOn("#t5_iGenderMate");
+		type(KeyCode.ENTER);
+		clickOn("#t5_iPreference");
+		type(KeyCode.ENTER);
+		clickOn("#t5_algorithm");
+		type(KeyCode.DOWN);
+		type(KeyCode.ENTER);
+		clickOn("#t5_predict_button");
+		t = (TextArea)s.lookup("#t5_reason");
+		String s1 = t.getText();
+		assertTrue(s1.equals("The rank of your name, Tiffany, is 127 in 2001,\n"
+				+ "and according to our calculations,\n"
+				+ "Patrick has matched your rank\n"
+				+ "in the year 2008,\n"
+				+ "and also occurs the most between\n"
+				+ "2001 and 2010, which means\n"
+				+ "they will most likely become your soulmate in the future!"));
+	}
 
+	@Test
+	public void testT5AutogenderFemaleOlder() {
+		clickOn("#tabApp2");
+		tf = (TextField) s.lookup("#t5_iName");
+		tf.setText("Tiffany");
+		tf = (TextField) s.lookup("#t5_iYOB");
+		tf.setText("2001");
+		clickOn("#t5_iGenderMate");
+		type(KeyCode.ENTER);
+		clickOn("#t5_iPreference");
+		type(KeyCode.DOWN);
+		type(KeyCode.ENTER);
+		clickOn("#t5_algorithm");
+		type(KeyCode.DOWN);
+		type(KeyCode.ENTER);
+		clickOn("#t5_predict_button");
+		t = (TextArea)s.lookup("#t5_reason");
+		String s1 = t.getText();
+		assertTrue(s1.equals("The rank of your name, Tiffany, is 127 in 2001,\n"
+				+ "and according to our calculations,\n"
+				+ "Jack has matched your rank\n"
+				+ "in the year 1994,\n"
+				+ "and also occurs the most between\n"
+				+ "1992 and 2001, which means\n"
+				+ "they will most likely become your soulmate in the future!"));
+	}
 
 	@Test
 	public void testT3ReportingNoInput() {
@@ -333,21 +475,75 @@ public class JavaFXTest extends ApplicationTest {
 	}
 
 	@Test
-	public void testT3ReportingValidInput() {
+	public void testT3ReportingInvalidInput() {
 		clickOn("#tabReport3");
 		tf = (TextField)s.lookup("#t3StartYearField");
 		tf.setText("1890");
 		tf = (TextField)s.lookup("#t3EndYearField");
 		tf.setText("1891");
 		tf = (TextField)s.lookup("#t3NameField");
-		tf.setText("Mary");
+		tf.setText("Menon");
 		clickOn("#t3GenderChoice");
 		type(KeyCode.DOWN);
 		type(KeyCode.ENTER);
 		clickOn("#t3GenerateButton");
 		t = (TextArea)s.lookup("#t3SummaryTextArea");
 		String s1 = t.getText();
-		assertTrue(s1.equals("The year when the name MARY was most popular is 1890 at rank 1. In that year, the number of occurrence is 12078, which represents 4.007% of total female births in 1890."));
+		assertTrue(s1.equals("This name was not recorded in the selected years"));
+	}
+	
+	@Test
+	public void testT3ReportingInvalidYearRange() {
+		clickOn("#tabReport3");
+		tf = (TextField)s.lookup("#t3StartYearField");
+		tf.setText("1890");
+		tf = (TextField)s.lookup("#t3EndYearField");
+		tf.setText("1880");
+		tf = (TextField)s.lookup("#t3NameField");
+		tf.setText("David");
+		clickOn("#t3GenderChoice");
+		type(KeyCode.DOWN);
+		type(KeyCode.ENTER);
+		clickOn("#t3GenerateButton");
+		t = (TextArea)s.lookup("#t3SummaryTextArea");
+		String s1 = t.getText();
+		assertTrue(s1.equals(""));
+	}
+	
+	@Test
+	public void testT3ReportingInvalidYearOutOfRangeCaseA() {
+		clickOn("#tabReport3");
+		tf = (TextField)s.lookup("#t3StartYearField");
+		tf.setText("1850");
+		tf = (TextField)s.lookup("#t3EndYearField");
+		tf.setText("1880");
+		tf = (TextField)s.lookup("#t3NameField");
+		tf.setText("David");
+		clickOn("#t3GenderChoice");
+		type(KeyCode.DOWN);
+		type(KeyCode.ENTER);
+		clickOn("#t3GenerateButton");
+		t = (TextArea)s.lookup("#t3SummaryTextArea");
+		String s1 = t.getText();
+		assertTrue(s1.equals(""));
+	}
+	
+	@Test
+	public void testT3ReportingInvalidYearOutOfRangeCaseB() {
+		clickOn("#tabReport3");
+		tf = (TextField)s.lookup("#t3StartYearField");
+		tf.setText("1880");
+		tf = (TextField)s.lookup("#t3EndYearField");
+		tf.setText("2020");
+		tf = (TextField)s.lookup("#t3NameField");
+		tf.setText("David");
+		clickOn("#t3GenderChoice");
+		type(KeyCode.DOWN);
+		type(KeyCode.ENTER);
+		clickOn("#t3GenerateButton");
+		t = (TextArea)s.lookup("#t3SummaryTextArea");
+		String s1 = t.getText();
+		assertTrue(s1.equals(""));
 	}
 
 	@Test
