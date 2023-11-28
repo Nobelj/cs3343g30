@@ -743,7 +743,7 @@ public class Controller {
         // Input must be valid
         // Generate result
         String nameInput = t3NameField.getText();
-        String name = nameInput.toUpperCase();  // Capitalize because all data is capitalized
+        String name = nameInput;
         boolean isMale = t3GenderChoice.getValue().equals("Male");
         T3DataGenerator dataGenerator = new T3DataGenerator(startYear, endYear, name, isMale);
         String summaryText = dataGenerator.generateSummary();
